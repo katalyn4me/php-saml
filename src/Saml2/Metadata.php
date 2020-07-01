@@ -109,10 +109,7 @@ ORGANIZATIONSTR;
             $contactsInfo = array();
             foreach ($contacts as $type => $info) {
                 $contactsInfo[] = <<<CONTACT
-    <md:ContactPerson contactType="{$type}">
-        <md:GivenName>{$info['givenName']}</md:GivenName>
-        <md:EmailAddress>{$info['emailAddress']}</md:EmailAddress>
-    </md:ContactPerson>
+    <md:ContactPerson xmlns:spid="https://spid.gov.it/saml-extensions" contactType="other" spid:entityType="spid:aggregator"><md:Company>SOES SPA</md:Company><md:Extensions><spid:VATNumber>01199760628</spid:VATNumber></md:Extensions></md:ContactPerson><md:ContactPerson xmlns:spid="https://spid.gov.it/saml-extensions" contactType="other" spid:entityType="spid:aggregated"><md:Company>Aggregato per il collaudo</md:Company><md:Extensions><spid:IPACode>__aggrsint</spid:IPACode></md:Extensions></md:ContactPerson>
 CONTACT;
             }
             $strContacts = "\n".implode("\n", $contactsInfo);

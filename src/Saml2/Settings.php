@@ -948,7 +948,7 @@ class Settings
         assert(is_string($xml));
 
         $errors = array();
-        $res = Utils::validateXML($xml, 'saml-schema-metadata-2.0.xsd', $this->_debug, $this->getSchemasPath());
+        $res = Utils::validateXML($xml, 'saml-schema-metadata-aggregated-spid.xsd', $this->_debug, $this->getSchemasPath());
         if (!$res instanceof DOMDocument) {
             $errors[] = $res;
         } else {
